@@ -54,3 +54,18 @@
     }
   }
 }
+
+// Big mobile
+@media screen and (min-width: 520px) {
+  .hero__content {
+    background-image: none;
+    padding: 120px 60px;
+  }
+}
+
+// Tablet
+@media screen and (min-width: 768px) {
+  .hero__content {
+    padding: 100px;
+  }
+}
