@@ -26,9 +26,9 @@
     <div class="container">
       <form class="filter__form">
         <fieldset class="filter__item">
-          <label for="sunlight" class="filter__label"><b>1.</b> Set the amount of <b>sunlight</b> your plant will
+          <label for="sun" class="filter__label"><b>1.</b> Set the amount of <b>sunlight</b> your plant will
             get.</label>
-          <select id="sunlight" class="filter__select">
+          <select id="sun" class="filter__select">
             <option disabled selected value="null">Select...</option>
             <option value="no">No sunlight</option>
             <option value="low">Low sunlight</option>
@@ -36,10 +36,11 @@
           </select>
         </fieldset>
         <fieldset class="filter__item">
-          <label for="sunlight" class="filter__label filter__label--center"><b>2.</b> How often do you want to
+          <label for="water" class="filter__label filter__label--center"><b>2.</b> How often do you want
+            to
             <b>water</b> your
             plant?</label>
-          <select id="sunlight" class="filter__select">
+          <select id="water" class="filter__select">
             <option disabled selected value="null">Select...</option>
             <option value="rarely">Rarely</option>
             <option value="regularly">Regularly</option>
@@ -47,10 +48,10 @@
           </select>
         </fieldset>
         <fieldset class="filter__item">
-          <label for="sunlight" class="filter__label filter__label--last"><b>3.</b> Do you have pets? Do they
+          <label for="pets" class="filter__label filter__label--last"><b>3.</b> Do you have pets? Do they
             <b>chew</b>
             plants?</label>
-          <select id="sunlight" class="filter__select">
+          <select id="pets" class="filter__select">
             <option disabled selected value="null">Select...</option>
             <option value="false">No/They don't care</option>
             <option value="true">Yes</option>
@@ -205,6 +206,8 @@
       </div>
     </div>
   </section>
+
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
