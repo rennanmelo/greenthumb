@@ -1,0 +1,89 @@
+.filter {
+  padding: 35px;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__item {
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__label {
+    margin-bottom: 25px;
+    display: inline-block;
+    font-size: 14px;
+    color: #797979;
+
+    &::before {
+      content: '';
+      display: block;
+      background-image: url('/images/illustrations/sun.png');
+      background-position: left;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 75px;
+      margin-bottom: 15px;
+    }
+
+    &--center {
+      &::before {
+        background-image: url('/images/illustrations/wateringcan.png');
+        background-position: right;
+        transform: rotateY(180deg);
+      }
+    }
+
+    &--last {
+      &::before {
+        content: '';
+        background-image: url('/images/illustrations/dog.png');
+        height: 62px;
+        margin-bottom: 26px;
+      }
+    }
+  }
+
+  &__select {
+    height: 40px;
+    width: 100%;
+    padding: 8px 20px;
+    border-radius: 40px;
+    border: 1px solid #A8A8A8;
+    background: none;
+    font-size: 14px;
+    color: #A8A8A8;
+    outline: none;
+  }
+}
+
+// Tablet and Desktop
+@media screen and (min-width: 768px) {
+  .filter {
+    padding: 50px 35px;
+
+    &__form {
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: space-between;
+    }
+
+    &__item {
+      width: 33%;
+      max-width: 220px;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
