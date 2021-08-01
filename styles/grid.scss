@@ -1,0 +1,97 @@
+.grid {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  overflow: scroll;
+
+  &__item {
+    position: relative;
+    background-color: #ffffff;
+    padding: 45px 20px 20px;
+    border-radius: 5px;
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 8px 15px 15px 19px;
+    background-color: #75BC97;
+    box-shadow: 0px 8px 22px rgba(0, 0, 0, 0.181163);
+    border-radius: 0 35px 35px 0;
+  }
+
+  &__image {
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  &__name {
+    margin-bottom: 10px;
+    color: #1E6B4E;
+    font-size: 16px;
+  }
+
+  &__price-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #257556;
+  }
+
+  &__icon {
+    display: inline-block;
+    margin-left: 8px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 20px;
+  }
+
+  &__icon--toxicity {
+    background-image: url('/images/icons/toxic.svg');
+  }
+
+  &__icon--sunlight {
+    background-image: url('/images/icons/low-sun.svg');
+  }
+  
+  &__icon--water {
+    background-image: url('/images/icons/3-drops.svg');
+  }
+}
+
+@media screen and (min-width: 410px) {
+  .grid {
+  
+    &__item {
+      margin-right: 16px;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .grid {
+    display: grid;
+
+    &__item {
+      margin-right: 0;
+    }
+  }
+}
