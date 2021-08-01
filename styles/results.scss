@@ -1,0 +1,40 @@
+.results {
+  padding: 47px 35px 32px;
+  background-color: #F2F2F2;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 45px;
+    color: #A9A9A9;
+    line-height: 55px;
+    margin-bottom: 16px;
+    font-weight: bold;
+  }
+
+  &__description {
+    color: #A9A9A9;
+    font-size: 16px;
+    margin-bottom: 38px;
+    max-width: 220px;
+    line-height: 27px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .results {
+    padding: 52px 35px 68px;
+
+    &__content {
+      flex-direction: row;
+    }
+    
+    &__text {
+      margin-right: 190px;
+    }
+  }
+}
