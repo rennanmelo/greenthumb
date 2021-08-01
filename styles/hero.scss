@@ -34,6 +34,7 @@
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 15px;
+    max-width: 400px;
   }
 
   &__button {
@@ -67,5 +68,61 @@
 @media screen and (min-width: 768px) {
   .hero__content {
     padding: 100px;
+  }
+}
+
+// Desktop
+@media screen and (min-width: 992px) {
+  .hero {
+    height: 500px;
+
+    &__illustration {
+      background-image: url('/images/hero/desktop/plantperson.png');
+      background-position: center;
+    }
+    
+    &__content {
+
+      &::after {
+        content: '';
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-image: url('/images/hero/desktop/right-leaves.png');
+        background-size: contain;
+        background-position: right;
+        background-repeat: no-repeat;
+        width: 400px;
+      }
+    }
+
+    &__button {
+      transition: transform 250ms;
+
+      &:hover {
+        transform: translateY(5px);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1360px) {
+  .hero {
+
+    &__illustration {
+      background-position: 74% 100%;
+    }
+    
+    &__content {
+      background-image: url('/images/hero/desktop/left-leaves.png');
+      background-position: left;
+      padding: 40px 35px;
+    }
+
+    &__title {
+      font-size: 70px;
+    }
   }
 }
