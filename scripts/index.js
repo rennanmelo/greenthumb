@@ -7,7 +7,40 @@ document.addEventListener("DOMContentLoaded", function() {
         return response.json();
       }).then(function (data) {
         // This is the JSON from our response
-        console.log(data);
+        const grid = document.querySelector('.grid');
+        let gridItems = [];
+        console.log(gridItems);
+
+        grid.innerHTML = '';
+
+        data.map(plant => {
+
+          let gridItem = `
+          <div class='grid__item ${(plant.staff_favorite === true) ? "grid__item--favorite" : ""}'>
+            <div class='grid__illustration'>
+              <img class='grid__image' src=${plant.url} alt=${plant.name}/>        
+            </div>
+            <div class='grid__info'>
+              <h3 class='grid__name'>${plant.name}</h3>
+              <div class='grid__price-icons'>
+                <span class='grid__price'>$${plant.price}</span>
+                <div class='grid__icons'>
+
+                </div>
+              </div>
+            </div>
+          </div>`
+          
+          if (plant.staff_favorite === true) {
+            gridItems.unshift(gridItem);
+          } else {
+            gridItems.push(gridItem);
+          }
+        });
+        gridItems.map(item => {
+          grid.innerHTML = grid.innerHTML + item;
+        })
+
       }).catch(function (err) {
         // There was an error
         console.warn('Something went wrong.', err);
