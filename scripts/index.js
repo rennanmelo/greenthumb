@@ -1,3 +1,29 @@
+// Require icons
+const noSun = require("/images/icons/no-sun.svg"),
+      sun = require("/images/icons/low-sun.svg"),
+      rarelyWater = require("/images/icons/1-drop.svg"),
+      regularlyWater = require("/images/icons/2-drops.svg"),
+      dailyWater = require("/images/icons/3-drops.svg"),
+      toxicity = require("/images/icons/toxic.svg"),
+      noToxicity = require("/images/icons/pet.svg");
+
+const filterIcons = {
+  sunlight: {
+    no: noSun,
+    low: sun,
+    high: sun
+  },
+  water: {
+    rarely: rarelyWater,
+    regularly: regularlyWater,
+    daily: dailyWater
+  },
+  pets: {
+    true: toxicity,
+    false: noToxicity
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 
   const fetchData = (params) => {
@@ -9,12 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
         // This is the JSON from our response
         const grid = document.querySelector('.grid');
         let gridItems = [];
-        console.log(gridItems);
 
         grid.innerHTML = '';
 
         data.map(plant => {
-
           let gridItem = `
           <div class='grid__item ${(plant.staff_favorite === true) ? "grid__item--favorite" : ""}'>
             <div class='grid__illustration'>
@@ -25,7 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
               <div class='grid__price-icons'>
                 <span class='grid__price'>$${plant.price}</span>
                 <div class='grid__icons'>
-
+                  <img class='grid__icon' src=${filterIcons.sunlight[params.sun]} />
+                  <img class='grid__icon' src=${filterIcons.water[params.water]} />
+                  <img class='grid__icon' src=${filterIcons.pets[params.pets]} />
                 </div>
               </div>
             </div>
