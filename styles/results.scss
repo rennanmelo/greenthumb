@@ -25,6 +25,7 @@
   }
 
   &__content.results__content--filtered {
+    display: none;
     flex-wrap: wrap;
     align-items: flex-start;
     
@@ -35,6 +36,14 @@
       line-height: 49px;
       margin-bottom: 16px;
     }
+  }
+
+  &__content.results__content--show {
+    display: grid;
+  }
+
+  &__content.results__content--hide {
+    display: none;
   }
 
   &__logo {

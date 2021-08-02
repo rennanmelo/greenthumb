@@ -25,6 +25,9 @@ const filterIcons = {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+  const noResultsContent = document.querySelector('#no-results');
+  const withResultsContent = document.querySelector('#with-results');
+  const grid = document.querySelector('.grid');
 
   const fetchData = (params) => {
     fetch(`https://front-br-challenges.web.app/api/v2/green-thumb/?sun=${params.sun}&water=${params.water}&pets=${params.pets}`)
@@ -33,40 +36,45 @@ document.addEventListener("DOMContentLoaded", function() {
         return response.json();
       }).then(function (data) {
         // This is the JSON from our response
-        const grid = document.querySelector('.grid');
         let gridItems = [];
-
         grid.innerHTML = '';
 
-        data.map(plant => {
-          let gridItem = `
-          <div class='grid__item ${(plant.staff_favorite === true) ? "grid__item--favorite" : ""}'>
-            <div class='grid__illustration'>
-              <img class='grid__image' src=${plant.url} alt=${plant.name}/>        
-            </div>
-            <div class='grid__info'>
-              <h3 class='grid__name'>${plant.name}</h3>
-              <div class='grid__price-icons'>
-                <span class='grid__price'>$${plant.price}</span>
-                <div class='grid__icons'>
-                  <img class='grid__icon' src=${filterIcons.sunlight[params.sun]} />
-                  <img class='grid__icon' src=${filterIcons.water[params.water]} />
-                  <img class='grid__icon' src=${filterIcons.pets[params.pets]} />
+        if (data.length > 0) {
+          withResultsContent.classList.add('results__content--show');
+          noResultsContent.classList.add('results__content--hide');
+
+          data.map(plant => {
+            let gridItem = `
+            <div class='grid__item ${(plant.staff_favorite === true) ? "grid__item--favorite" : ""}'>
+              <div class='grid__illustration'>
+                <img class='grid__image' src=${plant.url} alt=${plant.name}/>        
+              </div>
+              <div class='grid__info'>
+                <h3 class='grid__name'>${plant.name}</h3>
+                <div class='grid__price-icons'>
+                  <span class='grid__price'>$${plant.price}</span>
+                  <div class='grid__icons'>
+                    <img class='grid__icon' src=${filterIcons.sunlight[params.sun]} />
+                    <img class='grid__icon' src=${filterIcons.water[params.water]} />
+                    <img class='grid__icon' src=${filterIcons.pets[params.pets]} />
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>`
-          
-          if (plant.staff_favorite === true) {
-            gridItems.unshift(gridItem);
-          } else {
-            gridItems.push(gridItem);
-          }
-        });
-        gridItems.map(item => {
-          grid.innerHTML = grid.innerHTML + item;
-        })
-
+            </div>`
+            
+            if (plant.staff_favorite === true) {
+              gridItems.unshift(gridItem);
+            } else {
+              gridItems.push(gridItem);
+            }
+          });
+          gridItems.map(item => {
+            grid.innerHTML = grid.innerHTML + item;
+          })
+        } else {
+          withResultsContent.classList.remove('results__content--show');
+          noResultsContent.classList.remove('results__content--hide');
+        } 
       }).catch(function (err) {
         // There was an error
         console.warn('Something went wrong.', err);
