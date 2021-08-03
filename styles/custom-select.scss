@@ -3,6 +3,7 @@
 }
 
 .custom-select-opener {
+  position: relative;
   display: block;
   width: 100%;
   height: 40px;
@@ -14,6 +15,19 @@
   color: #A8A8A8;
   outline: none;
   cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 0.4em;
+    height: 0.4em;
+    border-right: 0.2em solid #A8A8A8;
+    border-top: 0.2em solid #A8A8A8;
+    transform: translateY(-75%) rotate(135deg);
+    margin-right: 0.5em;
+  }
 }
 
 .custom-select-container select {
@@ -28,6 +42,15 @@
   .custom-select-opener {
     border-radius: 20px 20px 0 0;
     border-bottom: 0;
+
+    &::after {
+      width: 0.4em;
+      height: 0.4em;
+      border-right: 0.2em solid #A8A8A8;
+      border-top: 0.2em solid #A8A8A8;
+      transform: translateY(-25%) rotate(-45deg);
+      margin-right: 0.5em;
+    }
   }
 
   .custom-select-panel {
