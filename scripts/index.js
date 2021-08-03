@@ -1,3 +1,5 @@
+import customSelect from 'custom-select';
+
 // Require icons
 const noSun = require("/images/icons/no-sun.svg"),
       sun = require("/images/icons/low-sun.svg"),
@@ -28,6 +30,9 @@ document.addEventListener("DOMContentLoaded", function() {
   const noResultsContent = document.querySelector('#no-results');
   const withResultsContent = document.querySelector('#with-results');
   const grid = document.querySelector('.grid');
+
+  // Creates custom selects
+  customSelect('select');
 
   const fetchData = (params) => {
     fetch(`https://front-br-challenges.web.app/api/v2/green-thumb/?sun=${params.sun}&water=${params.water}&pets=${params.pets}`)
