@@ -8,6 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "custom-select": "^1.1.15",
     "parcel": "1.12.4"
   },
   "devDependencies": {
